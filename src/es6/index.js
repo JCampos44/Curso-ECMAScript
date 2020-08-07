@@ -25,6 +25,7 @@ let epicPhrase2 = `${hello} ${world}`
 console.log(epicPhrase2);
 
 
+//Clase 2
 let lorem = "Que pasa larvaaaa \n"
 + "otra frase.";
 
@@ -75,3 +76,56 @@ console.log(globalVar);
 const a = 'b';
 //a = 'a';
 console.log(a);
+
+
+//Clase 3
+let name = 'Javier';
+let age = 23;
+
+//es5
+obj = {name: name, age: age};
+
+//es6
+obj2 = {name, age};
+
+console.log(obj2);
+
+
+//Arrow functions
+const names = [
+    {name: 'Javier', age: 23},
+    {name: 'Yesica', age: 27}
+];
+
+let listOfNames = names.map(function (item) {
+    console.log(item.name);
+});
+
+let listOfNames2 = names.map(item => console.log(item.name));
+
+/*const listOfnames3 = (name, age, country) => {
+    ...
+}*/
+
+/*const listOfNames4 = name => {
+    ...
+}*/
+
+const square = num => num * num;
+console.log(square(2));
+
+
+const helloPromise = () => {
+    return new Promise((resolve, reject) => {
+        if (true) {
+            resolve('Hey!');
+        } else{
+            reject('Oops!');
+        }
+    });
+}
+
+helloPromise()
+.then(response => console.log(response))
+.then(() => console.log('hola'))
+.catch(error => console.log(error));
