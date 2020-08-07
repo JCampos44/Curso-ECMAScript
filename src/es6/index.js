@@ -129,3 +129,64 @@ helloPromise()
 .then(response => console.log(response))
 .then(() => console.log('hola'))
 .catch(error => console.log(error));
+
+
+
+//Clase 4
+class calculator{
+
+    constructor(){
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+
+    sum(valueA, valueB){
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA + this.valueB;
+    }
+}
+
+const calc = new calculator();
+console.log(calc.sum(2,2));
+
+const hello = require('./module');
+console.log(hello());
+
+
+//Generators
+function* helloWorld(){
+    if (true){
+        yield 'Hello, ';
+    }
+    if (true){
+        yield 'World';
+    }
+};
+
+const generatorHello = helloWorld();
+console.log(generatorHello.next().value); //Hello,
+console.log(generatorHello.next().value); //World
+console.log(generatorHello.next().value); //undefined
+
+
+//Secuencia de fibonacci usando generators
+function* fibonacci(){
+    var fn1 = 1;
+    var fn2 = 1;
+    while (true){
+        var actual = fn2;
+        fn2 = fn1;
+        fn1 += actual;
+        var reset = yield actual;
+        if (reset){
+            fn1 = 1;
+            fn2 = 1;
+        }
+    }
+}
+
+var secuencia = fibonacci();
+for (i = 0; i < 10; i++){
+    console.log(secuencia.next().value);
+}
